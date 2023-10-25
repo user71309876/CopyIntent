@@ -1,26 +1,18 @@
 package kr.ac.kumoh.ce.s20180474.copyintent
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.content.ContextCompat.startActivity
 import kr.ac.kumoh.ce.s20180474.copyintent.ui.theme.CopyIntentTheme
 
-class MainActivity : ComponentActivity() {
+class SecondActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -30,7 +22,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("hello")
+                    Greeting2("Android")
                 }
             }
         }
@@ -38,27 +30,17 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name:String,modifier:Modifier=Modifier){
-    val context=LocalContext.current
-    Column(
-        modifier=modifier
-    ){
-        Button(
-            modifier=modifier,
-            onClick={
-                val intent=Intent(context,SecondActivity::class.java)
-                startActivity(context,intent,null)
-            }
-        ){
-            Text("Activity")
-        }
-    }
+fun Greeting2(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun GreetingPreview2() {
     CopyIntentTheme {
-        Greeting("Android")
+        Greeting2("Android")
     }
 }
